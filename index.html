@@ -9,8 +9,13 @@
 
 <style>
 :root{
-/* ปรับ Palette ให้มีความละมุนมากขึ้น */
---bg-gradient: linear-gradient(135deg, #FFF0F6 0%, #FFE4F0 50%, #FFF9FB 100%);
+/* ไล่สีตามบรีฟ: ชมพูเข้ม -> ชมพูอ่อน -> เหลืองอ่อน -> ขาวนม */
+--bg-gradient: linear-gradient(180deg, 
+    #F6A5C9 0%,    /* ชมพูเข้ม */
+    #FFD1E8 35%,   /* ชมพูอ่อน */
+    #FFF9C4 70%,   /* เหลืองอ่อน */
+    #FFF8F0 100%   /* ขาวนม (Floral White) */
+);
 --main:#F6A5C9;
 --dark:#E889B5;
 --white: rgba(255, 255, 255, 0.95);
@@ -20,9 +25,8 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Mitr',sans-serif;}
 
 body{
-/* ใช้พื้นหลังแบบไล่เฉดสี */
 background: var(--bg-gradient);
-background-attachment: fixed;
+background-attachment: fixed; /* ล็อคพื้นหลังให้สีคงที่เวลาเลื่อนหน้าจอ */
 display:flex;
 justify-content:center;
 min-height: 100vh;
@@ -36,10 +40,9 @@ padding:20px 15px 40px;
 
 .section{
 background: var(--white);
-border-radius:30px; /* เพิ่มความโค้งมน */
+border-radius:30px;
 padding:25px 20px;
 margin-bottom:20px;
-/* ปรับเงาให้ดูมีมิติและนุ่มนวลขึ้น */
 box-shadow: 0 10px 30px rgba(246, 165, 201, 0.2);
 border:2px solid var(--main);
 backdrop-filter: blur(5px);
@@ -91,7 +94,6 @@ font-weight:500;
 transition: all 0.3s ease;
 }
 
-/* เอฟเฟกต์ตอนเอาเมาส์วางปุ่ม */
 .btn:hover {
 transform: translateY(-2px);
 box-shadow: 0 5px 15px var(--glow);

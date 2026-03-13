@@ -9,12 +9,16 @@
 
 <style>
 :root{
-/* ไล่สีตามบรีฟ: ชมพูเข้ม -> ชมพูอ่อน -> เหลืองอ่อน -> ขาวนม */
+/* ปรับสัดส่วนการไล่สีตามบรีฟใหม่ */
 --bg-gradient: linear-gradient(180deg, 
-    #F6A5C9 0%,    /* ชมพูเข้ม */
-    #FFD1E8 35%,   /* ชมพูอ่อน */
-    #FFF9C4 70%,   /* เหลืองอ่อน */
-    #FFF8F0 100%   /* ขาวนม (Floral White) */
+    #FFF8F0 0%,    /* ขาวนม 10% */
+    #FFF8F0 10%, 
+    #FFF9C4 10%,   /* เหลืองอ่อน 10% */
+    #FFF9C4 20%, 
+    #FFD1E8 20%,   /* ชมพูอ่อน 65% */
+    #FFD1E8 85%, 
+    #F6A5C9 85%,   /* ชมพูเข้ม 15% */
+    #F6A5C9 100%
 );
 --main:#F6A5C9;
 --dark:#E889B5;
@@ -26,7 +30,7 @@
 
 body{
 background: var(--bg-gradient);
-background-attachment: fixed; /* ล็อคพื้นหลังให้สีคงที่เวลาเลื่อนหน้าจอ */
+background-attachment: fixed;
 display:flex;
 justify-content:center;
 min-height: 100vh;

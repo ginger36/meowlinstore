@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
@@ -35,12 +35,41 @@ background-attachment: fixed;
 display:flex;
 justify-content:center;
 min-height: 100vh;
+position: relative; /* เพื่อให้อิโมจิพื้นหลังลอยอยู่ด้านบน */
+overflow-x: hidden; /* ป้องกันสกิลบาร์แนวนอน */
 }
+
+/* สไตล์สำหรับอิโมจิพื้นหลังขยับได้ */
+.bg-emoji {
+  position: fixed;
+  font-size: 24px;
+  opacity: 0.3; /* ทำให้จางลง */
+  z-index: -1; /* ให้อยู่หลังเนื้อหาหลัก */
+  animation: bgEmojiFloat 10s linear infinite; /* Animation ขยับช้าๆ */
+}
+
+@keyframes bgEmojiFloat {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(10px, 10px); }
+  50% { transform: translate(0, 20px); }
+  75% { transform: translate(-10px, 10px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ตำแหน่งอิโมจิพื้นหลังแต่ละตัว */
+.bg-emoji-1 { top: 10%; left: 10%; animation-delay: 0s; } /* 🍬 */
+.bg-emoji-2 { top: 20%; right: 15%; animation-delay: 2s; } /* 💕 */
+.bg-emoji-3 { top: 40%; left: 20%; animation-delay: 4s; } /* 🍒 */
+.bg-emoji-4 { top: 60%; right: 10%; animation-delay: 6s; } /* 🍰 */
+.bg-emoji-5 { bottom: 20%; left: 15%; animation-delay: 8s; } /* 🌷 */
+.bg-emoji-6 { bottom: 10%; right: 20%; animation-delay: 10s; } /* 💐 */
+.bg-emoji-7 { top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 12s; } /* 🍥 */
 
 .container{
 max-width:500px;
 width:100%;
 padding:20px 15px 40px;
+position: relative; /* เพื่อให้อิโมจิขยับได้รอบๆ */
 }
 
 .section{
@@ -96,6 +125,9 @@ h1,h2,h3{color:var(--dark);margin-bottom:15px;}
 .emoji-4 { bottom: -35px; left: 50%; transform: translateX(-50%); animation-delay: 1.5s; } /* 🌷 ใต้ */
 .emoji-6 { top: 20px; left: -40px; animation-delay: 2.5s; } /* 🍰 บนซ้าย */
 /* ลบ 🎀, 💐, 🍒 ออกตามบรีฟ */
+/* เพิ่ม 🍥, 🎀 */
+.emoji-7 { top: -15px; right: -15px; animation-delay: 3s; } /* 🍥 บนขวานิดนึง */
+.emoji-1 { top: -25px; left: 50%; transform: translateX(-50%); animation-delay: 0s; } /* 🎀 เหนือ */
 
 
 .badges{
@@ -286,6 +318,14 @@ transition: 0.3s;
 </head>
 
 <body>
+  <span class="bg-emoji bg-emoji-1">🍬</span>
+  <span class="bg-emoji bg-emoji-2">💕</span>
+  <span class="bg-emoji bg-emoji-3">🍒</span>
+  <span class="bg-emoji bg-emoji-4">🍰</span>
+  <span class="bg-emoji bg-emoji-5">🌷</span>
+  <span class="bg-emoji bg-emoji-6">💐</span>
+  <span class="bg-emoji bg-emoji-7">🍥</span>
+
 <div class="container">
 
 <div class="section center" style="border:none;box-shadow:none;background:transparent;">
@@ -296,6 +336,8 @@ transition: 0.3s;
     <span class="emoji-decoration emoji-2">💕</span>
     <span class="emoji-decoration emoji-4">🌷</span>
     <span class="emoji-decoration emoji-6">🍰</span>
+    <span class="emoji-decoration emoji-7">🍥</span>
+    <span class="emoji-decoration emoji-1">🎀</span>
   </div>
 <h1 style="text-shadow: 0 2px 10px var(--glow);">Meowlin Store</h1>
 <p style="color:var(--dark);opacity:.8;margin:10px 0 20px;">

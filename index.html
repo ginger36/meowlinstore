@@ -32,12 +32,40 @@ background-attachment: fixed;
 display:flex;
 justify-content:center;
 min-height: 100vh;
+position: relative;
+overflow-x: hidden;
 }
+
+/* --- อิโมจิพื้นหลังขยับได้ (🎀🍬🍥💕🍰🍒🌷💐) --- */
+.bg-emoji {
+  position: fixed;
+  font-size: 20px;
+  opacity: 0.35;
+  z-index: -1;
+  animation: bgEmojiFloat 12s ease-in-out infinite;
+}
+
+@keyframes bgEmojiFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(15px, 25px) rotate(10deg); }
+  66% { transform: translate(-15px, 15px) rotate(-10deg); }
+}
+
+.be-1 { top: 5%; left: 5%; animation-delay: 0s; }
+.be-2 { top: 15%; right: 8%; animation-delay: 1.5s; }
+.be-3 { top: 45%; left: 10%; animation-delay: 3s; }
+.be-4 { top: 60%; right: 12%; animation-delay: 4.5s; }
+.be-5 { bottom: 15%; left: 7%; animation-delay: 6s; }
+.be-6 { bottom: 5%; right: 5%; animation-delay: 7.5s; }
+.be-7 { top: 30%; right: 30%; animation-delay: 9s; }
+.be-8 { bottom: 40%; left: 35%; animation-delay: 10.5s; }
 
 .container{
 max-width:500px;
 width:100%;
 padding:20px 15px 40px;
+position: relative;
+z-index: 1;
 }
 
 .section{
@@ -53,6 +81,7 @@ backdrop-filter: blur(8px);
 h1,h2,h3{color:var(--dark);margin-bottom:15px;}
 .center{text-align:center;}
 
+/* --- Logo & 4 Emojis (💕🍬🍰🍥) --- */
 .logo-wrapper {
   position: relative;
   width: 155px;
@@ -86,10 +115,10 @@ h1,h2,h3{color:var(--dark);margin-bottom:15px;}
   50% { transform: translateY(-15px) rotate(5deg); }
 }
 
-.emoji-1 { top: -20px; right: -15px; animation-delay: 0s; }   /* 💕 */
-.emoji-2 { top: -20px; left: -15px; animation-delay: 1s; }    /* 🍬 */
-.emoji-3 { bottom: -10px; right: -15px; animation-delay: 2s; } /* 🍰 */
-.emoji-4 { bottom: -10px; left: -15px; animation-delay: 3s; }  /* 🍥 */
+.emoji-1 { top: -20px; right: -15px; animation-delay: 0s; }   
+.emoji-2 { top: -20px; left: -15px; animation-delay: 1s; }    
+.emoji-3 { bottom: -10px; right: -15px; animation-delay: 2s; } 
+.emoji-4 { bottom: -10px; left: -15px; animation-delay: 3s; }  
 
 .badges{
 display:flex;
@@ -134,8 +163,7 @@ color:var(--dark);
 }
 
 .status-dot {
-  height: 10px;
-  width: 10px;
+  height: 10px; width: 10px;
   background-color: var(--status-pink);
   border-radius: 50%;
   animation: statusPulse 2s ease-in-out infinite;
@@ -221,6 +249,7 @@ gap: 10px;
 margin-bottom: 10px;
 font-size: 14px;
 color: var(--dark);
+line-height: 1.5;
 }
 
 .footer-title {
@@ -252,6 +281,15 @@ transition: 0.3s;
 </head>
 
 <body>
+  <span class="bg-emoji be-1">🎀</span>
+  <span class="bg-emoji be-2">🍬</span>
+  <span class="bg-emoji be-3">🍥</span>
+  <span class="bg-emoji be-4">💕</span>
+  <span class="bg-emoji be-5">🍰</span>
+  <span class="bg-emoji be-6">🍒</span>
+  <span class="bg-emoji be-7">🌷</span>
+  <span class="bg-emoji be-8">💐</span>
+
 <div class="container">
 
 <div class="section center" style="border:none;box-shadow:none;background:transparent; padding:0;">
@@ -267,7 +305,7 @@ transition: 0.3s;
   
   <h1 style="text-shadow: 0 4px 12px var(--glow);">Meowlin Store</h1>
   <p style="color:var(--dark); opacity:0.9; margin-bottom: 25px; line-height: 1.6;">
-    สวัสดีคับ! แม่ค้ามีชื่อว่าลิน</b>นะคะ<br>ลินรับทำป้ายลายน้ำ มีทั้งทำเองและเป็นตัวแทนเลยค่ะ! 🎀
+    สวัสดีคับ! แม่ค้ามีชื่อว่า<b>ลิน</b>นะคะ<br>ลินรับทำป้ายลายน้ำ มีทั้งทำเองและเป็นตัวแทนเลยค่ะ! 🎀
   </p>
   
   <div class="badges">
@@ -295,15 +333,14 @@ transition: 0.3s;
   <h2>📋 ขั้นตอนการสั่ง</h2>
   <div style="margin-bottom:20px; padding:12px; background:#FFF0F6; border-radius:15px; font-size:13px; color:var(--dark); border-left: 4px solid var(--main);">
       • ไม่รับทำงานจากแนวป้ายร้านอื่น<br>
-      • ไม่รับแบบติดซิมโบล อักษรหรืออักขระพิเศษ<br>
-      • ลูกค้าแก้ได้ 3 ครั้งเท่านั้น ครั้งต่อไปมีบวกเพิ่ม
+      • ไม่รับแบบติดซิมโบล อักษรหรืออักขระพิเศษ
   </div>
   <div class="step"><div class="step-num">1</div><div>เลือกบล็อกหรือตัวอย่างงานของทางร้าน</div></div>
   <div class="step"><div class="step-num">2</div><div>บรีฟโทนสี รายละเอียด ของตกแต่ง</div></div>
   <div class="step"><div class="step-num">3</div><div>โอนเงินล็อคคิวเท่านั้น ไม่รับทำก่อนโอน</div></div>
   <div class="step"><div class="step-num">4</div><div>รองานตามเวลาที่กำหนด เสร็จแล้วจะส่งให้เช็ค</div></div>
-  <div class="step"><div class="step-num">5</div><div>ตรวจสอบงานและแจ้งแก้ไข</div></div>
-  <div class="step"><div class="step-num">6</div><div>หากพอใจกับงานแล้ว รอรับงานได้เลยค่ะ</div></div>
+  <div class="step"><div class="step-num">5</div><div>ลูกค้าแก้ได้ 3 ครั้งเท่านั้น ครั้งต่อไปมีบวกเพิ่ม</div></div>
+  <div class="step"><div class="step-num">6</div><div>หากพอใจกับงานแล้วรอส่งงานได้เลยค่ะ</div></div>
 </div>
 
 <div class="section">
@@ -332,6 +369,7 @@ transition: 0.3s;
   
   <h3 style="font-size:16px; text-align:center;">📂 ดูผลงานเพิ่มเติม</h3>
   <a href="https://drive.google.com/drive/folders/1mFL03UpMXdMFqiv9plZEW_1Bz_qzmN7_" target="_blank" class="btn btn-main">⭐ ตัวอย่างงานทั้งหมด</a>
+  
   <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top:10px;">
     <a href="https://drive.google.com/drive/folders/1jDWT44iLD9GP9Y-5juvLfpDOzdVeNTmF" target="_blank" class="btn btn-sub" style="margin-top:0;">Block</a>
     <a href="https://drive.google.com/drive/folders/1jHRcrNwp20DDeu6ViiFCj-2vd0mWFM-R" target="_blank" class="btn btn-sub" style="margin-top:0;">Toon</a>
